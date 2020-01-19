@@ -1,0 +1,22 @@
+<h1>Welcome to the Market!</h1>
+<h2>Here are our products</h2>
+
+<table>
+    <thead>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Price</th>
+    </thead>
+    <% @products.each do |product|%>
+    <tr>
+        <td><%= product.name %></td>
+        <td><%= product.description %></td>
+        <td><%= product.price %></td>
+        <td>
+            <%= link_to "Edit", edit_product_path(product) %>
+            <%= link_to "Delete", product, method: :delete, data: { confirm: "Are you want to remove this product?"}%>
+        </td>
+    </tr>
+    <% end %>
+</table>
+<%= link_to "Create", new_product_path %>
